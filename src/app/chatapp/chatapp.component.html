@@ -30,11 +30,13 @@
 
 
     </div>
-    {{textmessage}}
-
+    <p><u>Please Refresh To Send The Message Showing Below: </u></p>
     
+    {{textmessage}}
     
     <br/>
+    <br/>
+    
     <input type="text" placeholder="Message" id="message" [(ngModel)]="messageinput">
     
     <button (click)='message()' class="btn" id="messagesent">Send Message</button>
