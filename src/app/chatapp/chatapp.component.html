@@ -1,0 +1,25 @@
+<div class="completebody">
+
+  <div class="leftdisplay">
+    <h1>Acme</h1>
+     <input type="text" placeholder="Channel Create" [(ngModel)]="channelinput"> 
+     {{channelinput}}
+    <button (click)='channel()'>Channel create</button>
+  </div>
+
+
+  <div class="rightdisplay">
+
+    <div class="righttop">
+        <input type="text" placeholder="Search" id="searching">&emsp;&nbsp;@&emsp;&nbsp;✰&emsp;&nbsp;⋮
+      
+    </div>
+    
+    <input type="text" placeholder="Message" id="message" [(ngModel)]="messageinput">
+    <br/>
+    {{messageinput}}
+    <br/>
+    <button (click)='message()'>Send Message</button>
+  </div>
+
+</div>
