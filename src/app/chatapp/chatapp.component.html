@@ -3,15 +3,9 @@
   <div class="leftdisplay">
     <h1>Saurabh</h1>
     <input type="text" placeholder="Create Your Channel" [(ngModel)]="channelinput" id="channelcreate">
-
-
     <button (click)='channel()' class="btn">+</button>
-
-
     <br/> {{channelinput}}
-
     <br/>
-
     <ul *ngFor="let channels of channelArray">
       <li>{{channels}}</li>
     </ul>
@@ -19,30 +13,22 @@
 
 
   <div class="rightdisplay">
-
     <div class="righttop">
       <input type="text" placeholder="Search" id="searching">&emsp;&nbsp;@&emsp;&nbsp;✰&emsp;&nbsp;⋮
-
       <ul *ngFor="let message of messageArray">
-          <li>{{message}}</li>
-        </ul>
-  
-
-
+        <li>{{message}}</li>
+      </ul>
     </div>
-    <p><u>Please Refresh To Send The Message Showing Below: </u></p>
-    
+    <p>
+      <u>Please Refresh To Send The Message Showing Below: </u>
+    </p>
+
     {{textmessage}}
-    
+
     <br/>
     <br/>
-    
+
     <input type="text" placeholder="Message" id="message" [(ngModel)]="messageinput">
-    
     <button (click)='message()' class="btn" id="messagesent">Send Message</button>
-    
-     
-
   </div>
-
 </div>

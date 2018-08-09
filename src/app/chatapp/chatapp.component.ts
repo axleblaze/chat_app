@@ -18,11 +18,14 @@ export class ChatappComponent implements OnInit {
 
   constructor(private route: Router, private service: ApiService) { }
 
+  //these functions are called here so that it is called duing loading
   ngOnInit() {
     this.showChannelList();
    this.showMessageList();
    
   }
+
+//this function is creating a channel
 
   channel() {
     this.service.addchannel(this.channelinput).subscribe(res => {
@@ -33,6 +36,9 @@ export class ChatappComponent implements OnInit {
     });
   }
   channelArray = [];
+
+  //this function displays the channels which have been made
+  
   showChannelList() {
     this.service.showchannel().subscribe(res => {
      
@@ -48,6 +54,7 @@ export class ChatappComponent implements OnInit {
       })
   }
 
+  //this function is creating msg
   message() {
     this.service.sendmessage(this.messageinput).subscribe(res => {
       console.log(res);
@@ -56,6 +63,7 @@ export class ChatappComponent implements OnInit {
   }
 
 
+//displaying the message
 
   messageArray = [];
   showMessageList() {
@@ -73,6 +81,10 @@ export class ChatappComponent implements OnInit {
         console.log(err);
       });
   }
+
+//Please Ignore
+
+
 
   // myMessage(){
   //   this.service.messageenter(this.textmessage).subscribe(res =>{
