@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams ,HttpHeaders} from '@angular/common/http';
+import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { Observable } from '../../node_modules/rxjs';
+import { map } from "rxjs/operators";
+
+
 
 @Injectable({
   providedIn: 'root'
@@ -9,34 +12,61 @@ export class ApiService {
 
   url: string = "https://chat.twilio.com/v2/Services"
 
-  channel: string = "https://chat.twilio.com/v2/Services/IS7189b9283351490d99015f6c5472d636/Channels";
+  channel: string = "https://chat.twilio.com/v2/Services/IS5b77315996ba4ff3bfbc0e5d66787905/Channels";
 
-  message:string="https://chat.twilio.com/v2/Services/IS7189b9283351490d99015f6c5472d636/Channels/ CH39adafa6162f4ca8a4ce8b97f4bdf66a/Messages";
+  message: string = "https://chat.twilio.com/v2/Services/IS5b77315996ba4ff3bfbc0e5d66787905/Channels/CHac6a601657174294afe8ddd02c0ecdf4/Messages";
+   
+  idservice:string="IS5b77315996ba4ff3bfbc0e5d66787905";
   
-  
-  
+  idchannel : string="CHac6a601657174294afe8ddd02c0ecdf4";
+
   constructor(private http: HttpClient) { }
-
+  group: any;
 
   getData(): Observable<any> {
-    const body = new HttpParams().set('FriendlyName', 'Chatting App10');
-    
-    return this.http.post(this.url, body.toString(),httpOptions)
-  
-  } 
- 
-   addchannel(newchannel):Observable<any>{
-  
-  return this.http.post(this.channel,'UniqueName='+newchannel,httpOptions)
- }
+    const body = new HttpParams().set('FriendlyName', 'Chateo');
+
+    return this.http.post(this.url, body.toString(), httpOptions)
+
+  }
 
 
- sendmessage(newmessage):Observable<any>{
-  
-  return this.http.post(this.message,"ChannelSid=IS95d0eae223f64224a34c8f424b2bab1b"
-  +"&ServiceSid=IS95d0eae223f64224a34c8f424b2bab1b"
-  +"&Body="+newmessage+"&From=Saurabh",httpOptions); 
- }
+  //this is used to add the channels
+
+  addchannel(newchannel): Observable<any> {
+
+    return this.http.post(this.channel, 'UniqueName=' + newchannel, httpOptions)
+  }
+
+  //this is used to display the channels
+
+  showchannel(): Observable<any> {
+
+    return this.http.get(this.channel, httpOptions).pipe(map(data => data));
+  }
+
+  //this is used to send messages
+
+  sendmessage(newmessage): Observable<any> {
+
+    return this.http.post(this.message, "ChannelSid=IS5b77315996ba4ff3bfbc0e5d66787905"
+      + "&ServiceSid=CHac6a601657174294afe8ddd02c0ecdf4"
+      + "&Body=" + newmessage + "&From=Saurabh", httpOptions);
+  }
+
+
+  showmessage(): Observable<any> {
+
+    return this.http.get(this.message, httpOptions).pipe(map(data => data));
+  }
+
+
+messageenter(myMessages):Observable<any>{
+  return this.http.post("https://chat.twilio.com/v2/Services/"+this.idservice
+  +"/Channels/" + this.idchannel+"/Messages","ChannelSid=" + this.idchannel+"&ServiceSid="+this.idservice+"&Body="+myMessages,httpOptions); 
+console.log("ji"+myMessages);
+}
+
 }
 
 
@@ -44,7 +74,7 @@ export class ApiService {
 
 
 
-const  httpOptions = {
+const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/x-www-form-urlencoded',
     'Authorization': 'Basic QUMyNWUwNWRkMjAyNTA0Y2NhZDNjYjdhYjUzMTdhMjY5Yzo3NTI2MDA1ZjJkNjliNDFiNDJlOGI5ZGJlZTExN2JiZA=='

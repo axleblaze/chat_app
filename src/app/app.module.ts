@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+
 import{ RouterModule , Routes } from '@angular/router' 
 import {HttpClientModule } from '@angular/common/http'
 import { AppComponent } from './app.component';
@@ -13,6 +14,7 @@ import {
 } from "angular-6-social-login";
 import { ApiService } from './api.service';
 import { FormsModule } from '@angular/forms'
+
 const routs:Routes =[
   {
     path :'' , component:SigninComponent
@@ -57,7 +59,8 @@ export function getAuthServiceConfigs() {
     BrowserModule, SocialLoginModule,
     HttpClientModule,
     HttpModule,
-    RouterModule.forRoot(routs),FormsModule
+    RouterModule.forRoot(routs),
+    FormsModule
   ],
   providers: [ApiService,
     {  provide: AuthServiceConfig,
