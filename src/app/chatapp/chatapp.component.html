@@ -23,6 +23,12 @@
     <div class="righttop">
       <input type="text" placeholder="Search" id="searching">&emsp;&nbsp;@&emsp;&nbsp;✰&emsp;&nbsp;⋮
 
+      <ul *ngFor="let message of messageArray">
+          <li>{{message}}</li>
+        </ul>
+  
+
+
     </div>
     {{textmessage}}
 
@@ -32,10 +38,7 @@
     <input type="text" placeholder="Message" id="message" [(ngModel)]="messageinput">
     
     <button (click)='message()' class="btn" id="messagesent">Send Message</button>
-    <ul *ngFor="let message of messageArray">
-        <li>{{message}}</li>
-      </ul>
-
+    
      
 
   </div>

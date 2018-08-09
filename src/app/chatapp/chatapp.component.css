@@ -21,7 +21,8 @@
 .righttop{
     background-color: 	#FFFFFF;
     margin-top: -650px;
-    height: 55px;
+    height: 555px;
+    overflow: scroll;
 }
 #searching{
     margin-left: 58%;
@@ -39,7 +40,7 @@
     border-radius: 10px;
 }
 #message{
-    margin-top: 500px;
+    margin-top: px;
     margin-left: 25px;
     padding: 8px;
     font-size: 13px;
