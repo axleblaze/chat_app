@@ -35,8 +35,8 @@ export class SigninComponent implements OnInit {
         // console.log(socialPlatform+" sign in data : " , userData);
         // Now sign-in with userData
         // ...
-        var res = this.service.getData();
-        res.subscribe(data => console.log(data))
+      //  var res = this.service.getData();
+      // res.subscribe(data => console.log(data))
 
         this.route.navigate(['/chatapp']);
         localStorage.setItem("id", userData.id);

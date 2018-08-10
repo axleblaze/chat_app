@@ -24,7 +24,6 @@ export class ChatappComponent implements OnInit {
   
   
   //this function is creating a channel
-
   public channelinput = "";
   group;
 
@@ -39,7 +38,6 @@ export class ChatappComponent implements OnInit {
 
 
   //this function displays the channels which have been made
-
   channelArray = [];
 
   showChannelList() {
@@ -63,7 +61,6 @@ export class ChatappComponent implements OnInit {
   }
 
   //this function is creating msg
-
   public messageinput = "";
   public textmessage;
 
@@ -80,7 +77,6 @@ export class ChatappComponent implements OnInit {
   messageArray = [];
 
   //this function displaying the message
-
   showMessageList() {
     this.service.showmessage().subscribe(res => {
 
