@@ -43,12 +43,7 @@ export class ChatappComponent implements OnInit {
   showChannelList() {
     this.service.showchannel().subscribe(res => {
 
-      //
-      
-      
-      
-      
-      console.log(res.channels[0].unique_name);
+      // console.log(res.channels[0].unique_name);
       var len = res.channels.length;
       for (let index = 0; index < len; index++) {
         this.channelArray[index] = res.channels[index].unique_name;

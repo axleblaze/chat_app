@@ -22,27 +22,32 @@ export class ApiService {
 
   idchannel: string = "CHac6a601657174294afe8ddd02c0ecdf4";
 
-
+  
   group: any;
 
   constructor(private http: HttpClient) { }
-  canActivate() {
-    if (localStorage.getItem('id') === "117781316020699046034") {
-      return true;
-    }else{
-      false;
-    }
-  }
 
+  // canActivate()
+  // {
+  //   if(localStorage.getItem('id')==='')
+  //   {
+  //     return true;
+  //   }else
+  //   {
+  //     false;
+  //   }
+  // }
+  
+ 
 
   //creating a channel 
+ 
   // getData(): Observable<any> {
   //   const body = new HttpParams().set('FriendlyName', 'Chateo');
 
   //   return this.http.post(this.service, body.toString(), httpOptions)
 
-  // }
-
+  
 
   //this is used to add the channels
   addchannel(newchannel): Observable<any> {
