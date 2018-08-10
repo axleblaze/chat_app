@@ -25,13 +25,13 @@ export class SigninComponent implements OnInit {
     let socialPlatformProvider;
     if (socialPlatform == "google") {
       socialPlatformProvider = GoogleLoginProvider.PROVIDER_ID;
-   
+   //   var t =this.i =this.service.getData();
+    //  t.subscribe(data=>console.log(data))
 
     }
 
     this.socialAuthService.signIn(socialPlatformProvider).then(
       (userData) => {
-        console.log(userData);
         // console.log(socialPlatform+" sign in data : " , userData);
         // Now sign-in with userData
         // ...
@@ -39,7 +39,7 @@ export class SigninComponent implements OnInit {
         res.subscribe(data => console.log(data))
 
         this.route.navigate(['/chatapp']);
-        localStorage.setItem("id", userData.id);
+      //  localStorage.setItem("id", userData.id);
 
       }
      );

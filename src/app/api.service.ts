@@ -14,29 +14,34 @@ export class ApiService {
 
   service: string = "https://chat.twilio.com/v2/Services"
 
-  channel: string = "https://chat.twilio.com/v2/Services/IS5b77315996ba4ff3bfbc0e5d66787905/Channels";
+  channel: string = "https://chat.twilio.com/v2/Services/IS997d04d07bcb49669f20ef512250a905/Channels";
 
-  message: string = "https://chat.twilio.com/v2/Services/IS5b77315996ba4ff3bfbc0e5d66787905/Channels/CHac6a601657174294afe8ddd02c0ecdf4/Messages";
+  message: string = "https://chat.twilio.com/v2/Services/IS997d04d07bcb49669f20ef512250a905/Channels/CH08789ff307d14a5e99cae686c1b33b5f/Messages";
 
   idservice: string = "IS5b77315996ba4ff3bfbc0e5d66787905";
 
   idchannel: string = "CHac6a601657174294afe8ddd02c0ecdf4";
 
-
+  
   group: any;
 
   constructor(private http: HttpClient) { }
-  canActivate() {
-    if (localStorage.getItem('id') === "117781316020699046034") {
-      return true;
-    }else{
-      false;
-    }
-  }
 
+  // canActivate()
+  // {
+  //   if(localStorage.getItem('id')==='')
+  //   {
+  //     return true;
+  //   }else
+  //   {
+  //     false;
+  //   }
+  // }
+  
+ 
 
   //creating a channel 
-
+  
   getData(): Observable<any> {
     const body = new HttpParams().set('FriendlyName', 'Chateo');
 
@@ -63,8 +68,8 @@ export class ApiService {
 
   sendmessage(newmessage): Observable<any> {
 
-    return this.http.post(this.message, "ChannelSid=IS5b77315996ba4ff3bfbc0e5d66787905"
-      + "&ServiceSid=CHac6a601657174294afe8ddd02c0ecdf4"
+    return this.http.post(this.message, "ChannelSid=IS997d04d07bcb49669f20ef512250a905"
+      + "&ServiceSid=CH08789ff307d14a5e99cae686c1b33b5f"
       + "&Body=" + newmessage + "&From=Saurabh", httpOptions);
   }
 
