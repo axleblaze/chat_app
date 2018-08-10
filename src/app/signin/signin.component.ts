@@ -18,14 +18,15 @@ export class SigninComponent implements OnInit {
   constructor(private socialAuthService: AuthService, private route: Router, private service: ApiService) { }
   ngOnInit() {
   }
-
+ i;
   //Reference - https://www.npmjs.com/package/angular-6-social-login#install-via-npm
 
   public socialSignIn(socialPlatform: string) {
     let socialPlatformProvider;
     if (socialPlatform == "google") {
       socialPlatformProvider = GoogleLoginProvider.PROVIDER_ID;
-
+   //   var t =this.i =this.service.getData();
+    //  t.subscribe(data=>console.log(data))
 
     }
 
@@ -38,6 +39,7 @@ export class SigninComponent implements OnInit {
         res.subscribe(data => console.log(data))
 
         this.route.navigate(['/chatapp']);
+      //  localStorage.setItem("id", userData.id);
 
       }
      );

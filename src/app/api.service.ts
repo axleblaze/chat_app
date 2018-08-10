@@ -8,25 +8,44 @@ import { map } from "rxjs/operators";
 @Injectable({
   providedIn: 'root'
 })
+
+
 export class ApiService {
 
-  url: string = "https://chat.twilio.com/v2/Services"
+  service: string = "https://chat.twilio.com/v2/Services"
 
   channel: string = "https://chat.twilio.com/v2/Services/IS5b77315996ba4ff3bfbc0e5d66787905/Channels";
 
   message: string = "https://chat.twilio.com/v2/Services/IS5b77315996ba4ff3bfbc0e5d66787905/Channels/CHac6a601657174294afe8ddd02c0ecdf4/Messages";
-   
-  idservice:string="IS5b77315996ba4ff3bfbc0e5d66787905";
-  
-  idchannel : string="CHac6a601657174294afe8ddd02c0ecdf4";
 
-  constructor(private http: HttpClient) { }
+  idservice: string = "IS5b77315996ba4ff3bfbc0e5d66787905";
+
+  idchannel: string = "CHac6a601657174294afe8ddd02c0ecdf4";
+
+  
   group: any;
 
+  constructor(private http: HttpClient) { }
+
+  // canActivate()
+  // {
+  //   if(localStorage.getItem('id')==='')
+  //   {
+  //     return true;
+  //   }else
+  //   {
+  //     false;
+  //   }
+  // }
+  
+ 
+
+  //creating a channel 
+  
   getData(): Observable<any> {
     const body = new HttpParams().set('FriendlyName', 'Chateo');
 
-    return this.http.post(this.url, body.toString(), httpOptions)
+    return this.http.post(this.service, body.toString(), httpOptions)
 
   }
 
@@ -61,18 +80,13 @@ export class ApiService {
   }
 
 
-messageenter(myMessages):Observable<any>{
-  return this.http.post("https://chat.twilio.com/v2/Services/"+this.idservice
-  +"/Channels/" + this.idchannel+"/Messages","ChannelSid=" + this.idchannel+"&ServiceSid="+this.idservice+"&Body="+myMessages,httpOptions); 
-console.log("ji"+myMessages);
-}
+  messageenter(myMessages): Observable<any> {
+    return this.http.post("https://chat.twilio.com/v2/Services/" + this.idservice
+      + "/Channels/" + this.idchannel + "/Messages", "ChannelSid=" + this.idchannel + "&ServiceSid=" + this.idservice + "&Body=" + myMessages, httpOptions);
+    // console.log("ji" + myMessages);
+  }
 
 }
-
-
-
-
-
 
 const httpOptions = {
   headers: new HttpHeaders({

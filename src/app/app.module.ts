@@ -20,9 +20,13 @@ const routs:Routes =[
     path :'' , component:SigninComponent
   },
   {
-    path:'chatapp' , component: ChatappComponent
+    path:'chatapp' , component: ChatappComponent 
+   // , canActivate:[ApiService]
 
-  }
+  },
+  {
+    path:'**' , component:SigninComponent
+}
 ]
 
 

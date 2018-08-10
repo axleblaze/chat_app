@@ -4,7 +4,8 @@
     <h1>Saurabh</h1>
     <input type="text" placeholder="Create Your Channel" [(ngModel)]="channelinput" id="channelcreate">
     <button (click)='channel()' class="btn">+</button>
-    <br/> {{channelinput}}
+    <br/>
+    <br/>  {{channelinput}}
     <br/>
     <ul *ngFor="let channels of channelArray">
       <li>{{channels}}</li>
