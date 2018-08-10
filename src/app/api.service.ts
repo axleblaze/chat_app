@@ -27,17 +27,6 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  // canActivate()
-  // {
-  //   if(localStorage.getItem('id')==='')
-  //   {
-  //     return true;
-  //   }else
-  //   {
-  //     false;
-  //   }
-  // }
-  
  
 
   //creating a channel 
