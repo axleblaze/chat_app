@@ -21,7 +21,7 @@ const routs:Routes =[
   },
   {
     path:'chatapp' , component: ChatappComponent 
-   // , canActivate:[ApiService]
+   , canActivate:[ApiService]
 
   },
   {
