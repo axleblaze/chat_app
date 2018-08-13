@@ -104,11 +104,12 @@ this.service.memberjoin(member).subscribe(res=>{
   }
 
 
-
+logout(){
+  this.route.navigate(['/']);
+}
 
   
 
-  //this function displaying the message
   
 
 

@@ -5,19 +5,28 @@
     <input type="text" placeholder="Create Your Channel" [(ngModel)]="channelinput" id="channelcreate">
     <button (click)='channel()' class="btn">+</button>
     <br/>
-    <br/>  {{channelinput}}
     <br/>
-    <ul *ngFor="let channels of channelArray">
-      <li (click)="recmessage(channels)">#{{channels.unique_name}}</li><button (click)="join(channels)">JOIN</button>
-    </ul>
+
+    <input type="text" placeholder="Search" id="searching">
+
+    <br/>
+    <br/> {{channelinput}}
+    <div class="channelview">
+      <ul *ngFor="let channels of channelArray">
+        <li id="channelname" (click)="recmessage(channels)">#{{channels.unique_name}}</li>
+        <button (click)="join(channels)" id="joinbutton">JOIN</button>
+      </ul>
+    </div>
   </div>
 
 
   <div class="rightdisplay">
     <div class="righttop">
-      <input type="text" placeholder="Search" id="searching">&emsp;&nbsp;@&emsp;&nbsp;✰&emsp;&nbsp;⋮
+      <button id="logoutbutton" (click)=logout()>Logout</button>
+     
+     <!-- <a id="icons">@&emsp;&nbsp;✰&emsp;&nbsp;⋮</a>  -->
       <ul *ngFor="let message of messageArray">
-        <li >{{message.body}}</li>
+        <li>{{message.body}}</li>
       </ul>
     </div>
     <p>
