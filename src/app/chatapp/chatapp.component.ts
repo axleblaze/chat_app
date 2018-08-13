@@ -106,11 +106,13 @@ email=localStorage.getItem('email');
       //this.recmessage(msgchannel);
       //console.log(res.body,"msg body")
 
+
     });
   }
 
 
   logout() {
+    localStorage.clear();
     this.route.navigate(['/']);
   }
 

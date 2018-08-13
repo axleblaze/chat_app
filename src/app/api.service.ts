@@ -82,7 +82,7 @@ searchchannel():Observable<any>{
   //this is used to send messages
   sendmessage(newmessage,url): Observable<any> {
   // /  console.log(url,'ok')
-    const body =new HttpParams().set('Body',newmessage).set('From',localStorage.getItem('id'))
+    const body =new HttpParams().set('Body',newmessage).set('From',localStorage.getItem('email'))
    
     return this.http.post(url,body.toString(),  httpOptions)
   }

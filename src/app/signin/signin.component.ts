@@ -35,8 +35,8 @@ export class SigninComponent implements OnInit {
       (userData) => {
          console.log(socialPlatform+" sign in data : " , userData);
         localStorage.setItem("id", userData.id);
-        // localStorage.setItem("name", userData.name);
-        // localStorage.setItem("email", userData.email);
+        localStorage.setItem("name", userData.name);
+        localStorage.setItem("email", userData.email);
         // Now sign-in with userData
         // ...
       //  var res = this.service.getData();

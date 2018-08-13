@@ -1,7 +1,7 @@
 <div class="completebody">
 
   <div class="leftdisplay">
-    <h1>Hell</h1>
+    <h1>{{this.name}}</h1>
     <input type="text" placeholder="Create Your Channel" [(ngModel)]="channelinput" id="channelcreate">
     <button (click)='channel()' class="button">+</button>
     <br/>
@@ -30,6 +30,7 @@
       <ul>
         <li *ngFor="let message of messageArray" style="margin: 10px" [ngClass]='{"sender":(message.from == id),"receiver":(message.from != id)}'>
 
+            {{message.from}}<br/>
           {{message.body}}
         </li>
       </ul>
