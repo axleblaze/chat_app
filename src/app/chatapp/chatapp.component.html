@@ -8,7 +8,7 @@
     <br/>  {{channelinput}}
     <br/>
     <ul *ngFor="let channels of channelArray">
-      <li (click)="recmessage(channels)">{{channels.unique_name}}</li><button (click)="join(channels)">JOIN</button>
+      <li (click)="recmessage(channels)">#{{channels.unique_name}}</li><button (click)="join(channels)">JOIN</button>
     </ul>
   </div>
 
