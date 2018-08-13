@@ -74,12 +74,16 @@ export class ApiService {
   
    }
 
-
+searchchannel():Observable<any>{
+  return this.http.get(this.channel,httpOptions).pipe(map(data=>data));
+  //console.log(this.channel,"channels");
+}
 
   //this is used to send messages
   sendmessage(newmessage,url): Observable<any> {
-    console.log(url,'ok')
-    const body =new HttpParams().set('Body',newmessage)
+  // /  console.log(url,'ok')
+    const body =new HttpParams().set('Body',newmessage).set('From',localStorage.getItem('id'))
+   
     return this.http.post(url,body.toString(),  httpOptions)
   }
 }

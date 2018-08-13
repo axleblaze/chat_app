@@ -8,6 +8,9 @@ import { ApiService } from '../api.service';
 })
 export class ChatappComponent implements OnInit {
 
+id =localStorage.getItem('id');
+name =localStorage.getItem('name');
+email=localStorage.getItem('email');
 
   constructor(private route: Router, private service: ApiService) { }
 
@@ -17,7 +20,7 @@ export class ChatappComponent implements OnInit {
 
   ngOnInit() {
     this.showChannelList();
-    
+
 
   }
 
@@ -30,18 +33,18 @@ export class ChatappComponent implements OnInit {
 
   channel() {
     this.service.addchannel(this.channelinput).subscribe(res => {
-     // console.log("allchannels" , res);
+      // console.log("allchannels" , res);
       this.group = res.unique_name;
       this.channelid = res.sid;
       console.log(res.sid)  // this is the id of the channel we are creating every time it is updated
     });
   }
-  
+
 
 
   //this function displays the channels which have been made
-  channelArray :any;
-  messageArray:any;
+  channelArray: any;
+  messageArray: any;
 
   showChannelList() {
     this.service.showchannel().subscribe(res => {
@@ -52,20 +55,20 @@ export class ChatappComponent implements OnInit {
       //   this.channelArray[index] = res.channels[index].unique_name;
       //   // console.log( JSON.stringify(this.channelArray[index]));
       // }
-      this.channelArray=res.channels;
+      this.channelArray = res.channels;
     },
       err => {
         console.log(err);
       })
   }
-  
-  
+
+
   //joinining channels
-  join(member){
+  join(member) {
     console.log(member)
-this.service.memberjoin(member).subscribe(res=>{
- // console.log(res,"saurabh")
-})
+    this.service.memberjoin(member).subscribe(res => {
+      // console.log(res,"saurabh")
+    })
     //console.log(member)
   }
 
@@ -75,16 +78,17 @@ this.service.memberjoin(member).subscribe(res=>{
   //this function is creating msg
   public messageinput = "";
   public textmessage;
-  msgapi:any;
-  recmessage(msgchannel){
-   // console.log(msgchannel.links.messages,"msgchannel")
+  msgapi: any;
+  recmessage(msgchannel) {
+    // console.log(msgchannel.links.messages,"msgchannel")
 
-   this.service.messagechannel(msgchannel.links.messages).subscribe(res =>{
-       console.log(msgchannel.links.messages , "api for message");
-       this.messageArray=res.messages
-       
-       this.msgapi=msgchannel.links.messages;
-       //console.log(this.messageArray, "msg")
+    this.service.messagechannel(msgchannel.links.messages).subscribe(res => {
+      console.log(msgchannel.links.messages, "api for message");
+      this.messageArray = res.messages
+
+      this.msgapi = msgchannel.links.messages;
+      //console.log(this.messageArray, "msg")
+
 
 
     })
@@ -93,26 +97,55 @@ this.service.memberjoin(member).subscribe(res=>{
 
   message() {
 
-    
-    this.service.sendmessage(this.messageinput,this.msgapi).subscribe(res => {
-    // console.log(this.messageinput,"nbnbnnb")
-     // console.log(res +"messagedata");
+
+    this.service.sendmessage(this.messageinput, this.msgapi).subscribe(res => {
+      // console.log(this.messageinput,"nbnbnnb")
+      // console.log(res +"messagedata");
       this.textmessage = res.body;
-      
+      // call get msg apis from here 
+      //this.recmessage(msgchannel);
       //console.log(res.body,"msg body")
+
     });
   }
 
 
-logout(){
-  this.route.navigate(['/']);
+  logout() {
+    this.route.navigate(['/']);
+  }
+
+  channelarray=[];
+  arrayLen;
+  foundchannel: any = "";
+  foundChannelId: any = "";
+  channelInput:string;
+  searchchannel() {
+    this.service.searchchannel().subscribe(res => {
+    //  console.log(res.channels.length, "goyal")
+      
+      for (let index = 0; index < res.channels.length; index++) {
+        this.channelarray.push(res.channels[index].unique_name)
+       
+          if (this.channelarray[index] == this.channelInput) {
+            console.log(this.channelInput,"found");
+            this.foundchannel = this.channelInput;
+            this.foundChannelId = res.channels[index].sid;
+            break;
+          }
+          else {
+            this.foundchannel = "channel not found";
+          }
+        }
+      
+    },
+      err => {
+        console.log();
+      })
+  }
+
+
+
+
 }
 
-  
 
-  
-
-
-}
-
- 

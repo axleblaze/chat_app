@@ -6,6 +6,7 @@ import {
 } from 'angular-6-social-login';
 import { Router } from '../../../node_modules/@angular/router';
 import { ApiService } from '../api.service';
+import { identifierModuleUrl } from '../../../node_modules/@angular/compiler';
 
 
 @Component({
@@ -32,8 +33,10 @@ export class SigninComponent implements OnInit {
 
     this.socialAuthService.signIn(socialPlatformProvider).then(
       (userData) => {
-        // console.log(socialPlatform+" sign in data : " , userData);
+         console.log(socialPlatform+" sign in data : " , userData);
         localStorage.setItem("id", userData.id);
+        // localStorage.setItem("name", userData.name);
+        // localStorage.setItem("email", userData.email);
         // Now sign-in with userData
         // ...
       //  var res = this.service.getData();

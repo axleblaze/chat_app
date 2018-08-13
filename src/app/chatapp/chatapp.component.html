@@ -1,13 +1,15 @@
 <div class="completebody">
 
   <div class="leftdisplay">
-    <h1>Saurabh</h1>
+    <h1>Hell</h1>
     <input type="text" placeholder="Create Your Channel" [(ngModel)]="channelinput" id="channelcreate">
-    <button (click)='channel()' class="btn">+</button>
+    <button (click)='channel()' class="button">+</button>
     <br/>
     <br/>
 
-    <input type="text" placeholder="Search" id="searching">
+    <input type="text" placeholder="Search" id="searching" [(ngModel)]="channelInput" (keyup)=" searchchannel()">
+
+    <p id="searchedchannel">{{foundchannel}}</p>
 
     <br/>
     <br/> {{channelinput}}
@@ -23,11 +25,15 @@
   <div class="rightdisplay">
     <div class="righttop">
       <button id="logoutbutton" (click)=logout()>Logout</button>
-     
-     <!-- <a id="icons">@&emsp;&nbsp;✰&emsp;&nbsp;⋮</a>  -->
-      <ul *ngFor="let message of messageArray">
-        <li>{{message.body}}</li>
+
+      <!-- <a id="icons">@&emsp;&nbsp;✰&emsp;&nbsp;⋮</a>  -->
+      <ul>
+        <li *ngFor="let message of messageArray" style="margin: 10px" [ngClass]='{"sender":(message.from == id),"receiver":(message.from != id)}'>
+
+          {{message.body}}
+        </li>
       </ul>
+
     </div>
     <p>
       <u>Please Refresh To Send The Message Showing Below: </u>

@@ -28,17 +28,18 @@
 }
 
 #searching {
-  margin-left: 2%;
+  margin-left: 20px;
   margin-top: 0px;
+  margin-left: 12px;
   padding: 8px;
   font-size: 13px;
   border: 1px solid grey;
   background: #f1f1f1;
-  top: 3px;
-  left: 5px;
-  height: 20px;
+  
+  height: 30px;
   z-index: 10;
   border-radius: 10px;
+ 
 }
 
 #message {
@@ -57,20 +58,19 @@
 }
 
 #channelcreate {
-  margin-left: 5px;
+  margin-left: 12px;
   padding: 8px;
   font-size: 13px;
   border: 1px solid grey;
   background: #f1f1f1;
-  top: 3px;
-  left: 5px;
-  height: 10px;
+  
+  height: 30px;
   z-index: 10;
   border-radius: 10px;
 }
 
-.btn {
-  margin-left: 20px;
+.button {
+  margin-left: 18px;
 }
 
 #messagesent {
@@ -86,7 +86,9 @@
 }
 
 #channelname{
-  font-weight: bold;
+  font-family: 'Times New Roman', Times, serif;
+  color: white;
+  
   
 }
 
@@ -107,3 +109,44 @@ margin-left: 150px;
 /* #icons{
   margin-left: 700px;
 } */
+/* #sendermsg{
+background-color:whitesmoke;
+float: right;
+color: black;
+word-wrap: break-word;
+}
+#receivermsg{
+  background-color:white;
+  float: left;
+  color: black;
+  word-wrap: break-word;
+} */
+.alert{
+  width: 51%;
+  word-wrap: break-word;
+}
+.alert-success{
+  float: right;
+}
+#searchedchannel{
+  margin-left: 25px;
+  font-family: 'Times New Roman', Times, serif;
+  color: white;
+
+
+}
+.receiver{
+ 
+  background-color: #c1c4af;
+  float: left; 
+  overflow: hidden;
+  width: 50%;
+  padding: 10px;
+}
+.sender{
+  background-color:rgb(194, 247, 194);
+  float: right;
+  width:50%;
+  overflow: hidden;
+  padding: 10px;
+}
