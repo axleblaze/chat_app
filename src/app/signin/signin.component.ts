@@ -33,13 +33,14 @@ export class SigninComponent implements OnInit {
     this.socialAuthService.signIn(socialPlatformProvider).then(
       (userData) => {
         // console.log(socialPlatform+" sign in data : " , userData);
+        localStorage.setItem("id", userData.id);
         // Now sign-in with userData
         // ...
       //  var res = this.service.getData();
       // res.subscribe(data => console.log(data))
 
         this.route.navigate(['/chatapp']);
-      //  localStorage.setItem("id", userData.id);
+        
 
       }
      );

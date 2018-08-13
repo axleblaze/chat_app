@@ -24,7 +24,7 @@ export class ApiService {
 
   
   group: any;
-
+  
   constructor(private http: HttpClient) { }
 
   // canActivate()
@@ -50,6 +50,7 @@ export class ApiService {
   
 
   //this is used to add the channels
+  
   addchannel(newchannel): Observable<any> {
 
     return this.http.post(this.channel, 'UniqueName=' + newchannel, httpOptions)
@@ -61,27 +62,26 @@ export class ApiService {
     return this.http.get(this.channel, httpOptions).pipe(map(data => data));
   }
 
+  //this is used to join channels
+  memberjoin(member):Observable<any>{
+   // console.log(member.links.members)
+    const body =new HttpParams().set('ChannelSid',member.sid).set('ServiceSid',member.service_sid).set('Identity',localStorage.getItem('id'))
+    return this.http.post(member.links.members,body.toString(),httpOptions);
+  }
+
+  messagechannel(link):Observable<any>{
+  return this.http.get(link, httpOptions);
+  
+   }
+
+
+
   //this is used to send messages
-  sendmessage(newmessage): Observable<any> {
-
-    return this.http.post(this.message, "ChannelSid=IS997d04d07bcb49669f20ef512250a905"
-      + "&ServiceSid=CH08789ff307d14a5e99cae686c1b33b5f"
-      + "&Body=" + newmessage + "&From=Saurabh", httpOptions);
+  sendmessage(newmessage,url): Observable<any> {
+    console.log(url,'ok')
+    const body =new HttpParams().set('Body',newmessage)
+    return this.http.post(url,body.toString(),  httpOptions)
   }
-
-
-  showmessage(): Observable<any> {
-
-    return this.http.get(this.message, httpOptions).pipe(map(data => data));
-  }
-
-
-  messageenter(myMessages): Observable<any> {
-    return this.http.post("https://chat.twilio.com/v2/Services/" + this.idservice
-      + "/Channels/" + this.idchannel + "/Messages", "ChannelSid=" + this.idchannel + "&ServiceSid=" + this.idservice + "&Body=" + myMessages, httpOptions);
-    // console.log("ji" + myMessages);
-  }
-
 }
 
 const httpOptions = {
