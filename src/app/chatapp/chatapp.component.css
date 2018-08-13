@@ -10,6 +10,7 @@
   width: 20%;
   height: 675px;
   overflow:scroll;
+  
 }
 
 .rightdisplay {
@@ -141,8 +142,12 @@ word-wrap: break-word;
 }
 .sender{
   background-color:rgb(194, 247, 194);
-  float: right;
+  float:right;
   width:50%;
   overflow: hidden;
   padding: 10px;
+}
+#username{
+  color: antiquewhite;
+  margin-left: 10px;
 }
