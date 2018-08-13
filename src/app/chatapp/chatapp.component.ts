@@ -19,8 +19,8 @@ email=localStorage.getItem('email');
   //these functions are called here so that it is called duing loading
 
   ngOnInit() {
+   
     this.showChannelList();
-
 
   }
 
@@ -37,7 +37,9 @@ email=localStorage.getItem('email');
       this.group = res.unique_name;
       this.channelid = res.sid;
       console.log(res.sid)  // this is the id of the channel we are creating every time it is updated
+      this.showChannelList();
     });
+    
   }
 
 
@@ -60,7 +62,8 @@ email=localStorage.getItem('email');
       err => {
         console.log(err);
       })
-  }
+  
+    }
 
 
   //joinining channels
@@ -69,6 +72,7 @@ email=localStorage.getItem('email');
     this.service.memberjoin(member).subscribe(res => {
       // console.log(res,"saurabh")
     })
+    
     //console.log(member)
   }
 
@@ -81,7 +85,8 @@ email=localStorage.getItem('email');
   msgapi: any;
   recmessage(msgchannel) {
     // console.log(msgchannel.links.messages,"msgchannel")
-
+    this.mesurl = msgchannel
+    console.log(this.mesurl)
     this.service.messagechannel(msgchannel.links.messages).subscribe(res => {
       console.log(msgchannel.links.messages, "api for message");
       this.messageArray = res.messages
@@ -94,19 +99,18 @@ email=localStorage.getItem('email');
     })
   }
 
-
+  mesurl;
   message() {
 
-
+    console.log(this.mesurl)
     this.service.sendmessage(this.messageinput, this.msgapi).subscribe(res => {
       // console.log(this.messageinput,"nbnbnnb")
       // console.log(res +"messagedata");
       this.textmessage = res.body;
       // call get msg apis from here 
       //this.recmessage(msgchannel);
-      //console.log(res.body,"msg body")
-
-
+      //console.log(res.body,"msg body"
+       this.recmessage(this.mesurl)
     });
   }
 
