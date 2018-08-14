@@ -13,11 +13,13 @@ import {
   GoogleLoginProvider,
 } from "angular-6-social-login";
 import { ApiService } from './api.service';
-import { FormsModule } from '@angular/forms'
+import { AuthService } from './auth.service';
+import { FormsModule } from '@angular/forms';
+import { NotfoundComponent } from './notfound/notfound.component'
 
 const routs:Routes =[
   {
-    path :'' , component:SigninComponent
+    path :'' , component:SigninComponent , //canActivate:[AuthService]
   },
   {
     path:'chatapp' , component: ChatappComponent 
@@ -25,7 +27,8 @@ const routs:Routes =[
 
   },
   {
-    path:'**' , component:SigninComponent
+    
+    path:'**' , component:NotfoundComponent
 }
 ]
 
@@ -57,7 +60,8 @@ export function getAuthServiceConfigs() {
   declarations: [
     AppComponent,
     SigninComponent,
-    ChatappComponent 
+    ChatappComponent,
+    NotfoundComponent 
   ],
   imports: [
     BrowserModule, SocialLoginModule,
@@ -66,7 +70,7 @@ export function getAuthServiceConfigs() {
     RouterModule.forRoot(routs),
     FormsModule
   ],
-  providers: [ApiService,
+  providers: [ApiService,AuthService,
     {  provide: AuthServiceConfig,
     useFactory: getAuthServiceConfigs}],
   bootstrap: [AppComponent]

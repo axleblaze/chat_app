@@ -33,13 +33,13 @@ export class ApiService {
     if(localStorage.getItem('id'))
     {
       return true;
+    
     }else
     {
       false;
       this.route.navigate(['/'])
     }
   }
-  
  
 
   //creating a channel 

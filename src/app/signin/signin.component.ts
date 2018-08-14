@@ -18,7 +18,10 @@ export class SigninComponent implements OnInit {
 
   constructor(private socialAuthService: AuthService, private route: Router, private service: ApiService) { }
   ngOnInit() {
+    if(localStorage.getItem('id')!=null){
+           this.route.navigate(['/chatapp'])
   }
+}
  i;
   //Reference - https://www.npmjs.com/package/angular-6-social-login#install-via-npm
 
