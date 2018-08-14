@@ -71,7 +71,6 @@ email=localStorage.getItem('email');
     console.log(member)
     this.service.memberjoin(member).subscribe(res => {
       // console.log(res,"saurabh")
-    this.joinmember=member;
     })
     
     //console.log(member)
@@ -96,6 +95,9 @@ email=localStorage.getItem('email');
       //console.log(this.messageArray, "msg")
 
    // this.join(this.joinmember);
+   this.service.memberjoin(msgchannel).subscribe(res => {
+    // console.log(res,"saurabh")
+  })
 
     })
     
