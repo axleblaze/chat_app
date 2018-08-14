@@ -11,16 +11,11 @@ export class AuthService {
 
  
 
-canActivate()
-  {
-    if(localStorage.getItem('id')!=null){
-    return true;
-    
-    }else{
-     return false;
-     //this.route.navigate(['/'])
-    }
-  }
+// canActivate()
+//   {
+//   
+//     }
+//   }
   
 }
 
