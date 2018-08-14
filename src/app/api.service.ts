@@ -14,13 +14,13 @@ export class ApiService {
 
   service: string = "https://chat.twilio.com/v2/Services"
 
-  channel: string = "https://chat.twilio.com/v2/Services/IS997d04d07bcb49669f20ef512250a905/Channels";
+  channel: string = "https://chat.twilio.com/v2/Services/IS85d4a31bec814fb5989a939eba3c9f19/Channels";
 
-  message: string = "https://chat.twilio.com/v2/Services/IS997d04d07bcb49669f20ef512250a905/Channels/CH08789ff307d14a5e99cae686c1b33b5f/Messages";
+ // message: string = "https://chat.twilio.com/v2/Services/IS997d04d07bcb49669f20ef512250a905/Channels/CH08789ff307d14a5e99cae686c1b33b5f/Messages";
 
-  idservice: string = "IS5b77315996ba4ff3bfbc0e5d66787905";
+  // idservice: string = "IS5b77315996ba4ff3bfbc0e5d66787905";
 
-  idchannel: string = "CHac6a601657174294afe8ddd02c0ecdf4";
+  // idchannel: string = "CHac6a601657174294afe8ddd02c0ecdf4";
 
   
   group: any;
@@ -47,7 +47,7 @@ export class ApiService {
 
   //   return this.http.post(this.service, body.toString(), httpOptions)
 
-  
+  // }
 
   //this is used to add the channels
   

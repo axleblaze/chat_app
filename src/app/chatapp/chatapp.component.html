@@ -1,19 +1,20 @@
 <div class="completebody">
 
   <div class="leftdisplay">
+    <!-- FETCHING USER NAME STORED IN LOCAL STORAGE -->
     <h2 id="username">{{this.name}}</h2>
+    <!-- CHANNEL CREATION IS DONE BELOW -->
     <input type="text" placeholder="Create Your Channel" [(ngModel)]="channelinput" id="channelcreate">
     <button (click)='channel()' class="button">+</button>
     <br/>
     <br/>
-
+    <!-- SEARCHING IS DONE BELOW -->
     <input type="text" placeholder="Search" id="searching" [(ngModel)]="channelInput" (keyup)=" searchchannel()">
-
     <p id="searchedchannel">{{foundchannel}}</p>
-
     <br/>
-    <br/> {{channelinput}}
+    <!-- <br/> {{channelinput}} -->
     <div class="channelview">
+      <!-- PERTICULAR GROUP MESSAGES ARE SHOWN -->
       <ul *ngFor="let channels of channelArray">
         <li id="channelname" (click)="recmessage(channels)">#{{channels.unique_name}}</li>
         <!-- <button (click)="join(channels)" id="joinbutton">JOIN</button> -->
@@ -24,27 +25,28 @@
 
   <div class="rightdisplay">
     <div class="righttop">
+      <!-- LOGOUT BUTTON  -->
       <button id="logoutbutton" (click)=logout()>Logout</button>
 
       <!-- <a id="icons">@&emsp;&nbsp;✰&emsp;&nbsp;⋮</a>  -->
       <ul>
+        <!-- PRINTING THE MESSAGES -->
         <li *ngFor="let message of messageArray" style="margin: 10px" [ngClass]='{"sender":(message.from == email),"receiver":(message.from != email)}'>
-
-            {{message.from}}<br/>
-          {{message.body}}
+          {{message.from}}
+          <br/> {{message.body}}
         </li>
       </ul>
 
     </div>
-    <p>
+    <!-- <p>
       <u>Please Refresh To Send The Message Showing Below: </u>
     </p>
 
     {{textmessage}}
-
+  -->
     <br/>
     <br/>
-
+    <!-- SENDING THE TEXT MESSAGE INPUT -->
     <input type="text" placeholder="Message" id="message" [(ngModel)]="messageinput">
     <button (click)='message()' class="btn" id="messagesent">Send Message</button>
   </div>
