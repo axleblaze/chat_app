@@ -38,6 +38,7 @@ email=localStorage.getItem('email');
       this.channelid = res.sid;
       console.log(res.sid)  // this is the id of the channel we are creating every time it is updated
       this.showChannelList();
+      this.channelinput=null;
     });
     
   }
@@ -95,6 +96,7 @@ email=localStorage.getItem('email');
       //console.log(this.messageArray, "msg")
 
    // this.join(this.joinmember);
+   //this line is for joining member
    this.service.memberjoin(msgchannel).subscribe(res => {
     // console.log(res,"saurabh")
   })
@@ -116,6 +118,7 @@ email=localStorage.getItem('email');
       //console.log(res.body,"msg body"
        this.recmessage(this.mesurl)
     });
+    this.messageinput=null;
   }
 
 
@@ -151,7 +154,8 @@ email=localStorage.getItem('email');
       err => {
         console.log();
       })
-  }
+     
+    }
 
 
 
