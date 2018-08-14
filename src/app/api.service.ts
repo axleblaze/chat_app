@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { Observable } from '../../node_modules/rxjs';
 import { map } from "rxjs/operators";
+import { Router } from '../../node_modules/@angular/router';
 
 
 
@@ -25,18 +26,19 @@ export class ApiService {
   
   group: any;
   
-  constructor(private http: HttpClient) { }
-
-  // canActivate()
-  // {
-  //   if(localStorage.getItem('id')==='')
-  //   {
-  //     return true;
-  //   }else
-  //   {
-  //     false;
-  //   }
-  // }
+  constructor(private http: HttpClient ,private route:Router) { }
+ number:number
+  canActivate()
+  {
+    if(localStorage.getItem('id'))
+    {
+      return true;
+    }else
+    {
+      false;
+      this.route.navigate(['/'])
+    }
+  }
   
  
 
